@@ -1,5 +1,4 @@
 # Booking.com_Scraper
-Sure, here is the complete repository content in English:
 
 ```markdown
 # Booking.com Hotel Scraper
