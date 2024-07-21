@@ -47,7 +47,7 @@ def scrape_page(url):
     return hotels
 
 # Function to scrape all pages
-def scrape_all_pages(base_url):
+def scrape_all_pages(base_url, max_hotels):
     all_hotels = []
     page_number = 0
     cooldown_attempts = 0
@@ -76,14 +76,21 @@ def scrape_all_pages(base_url):
         
         print(f"{Fore.YELLOW}{'-'*80}\nTotal hotels collected so far: {total_hotels}\n{'-'*80}{Style.RESET_ALL}")
         
+        if total_hotels >= max_hotels:
+            print(f"{Fore.GREEN}Reached the maximum limit of {max_hotels} hotels. Stopping scrape.{Style.RESET_ALL}")
+            break
+        
         page_number += 1
         cooldown_attempts = 0  # Reset cooldown attempts after successful scrape
         time.sleep(1)  # A bit of delay to avoid overloading the server
 
     return all_hotels
 
+# User input for maximum number of hotels to scrape
+max_hotels = int(input("Enter the maximum number of hotels to scrape: "))
+
 # Scrape all pages
-all_hotels = scrape_all_pages(base_url)
+all_hotels = scrape_all_pages(base_url, max_hotels)
 
 # Check if hotels were found
 if all_hotels:
