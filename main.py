@@ -50,23 +50,34 @@ def scrape_page(url):
 def scrape_all_pages(base_url):
     all_hotels = []
     page_number = 0
-    total_hotels = 0
-    
+    cooldown_attempts = 0
+
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')  # Clear the terminal
         url = f"{base_url}&offset={page_number * 25}"
         
         print(f"{Fore.CYAN}{'='*80}\nScraping page {page_number + 1}\nURL: {url}\n{'='*80}{Style.RESET_ALL}")
         hotels = scrape_page(url)
+        
         if not hotels:
-            print(f"{Fore.RED}No more hotels found, stopping scrape.{Style.RESET_ALL}")
-            break
+            if cooldown_attempts == 0:
+                print(f"{Fore.RED}No more hotels found, starting 1-minute cooldown.{Style.RESET_ALL}")
+                for i in range(60, 0, -1):
+                    print(f"{Fore.BLUE}Cooldown: {i} seconds remaining...{Style.RESET_ALL}", end='\r')
+                    time.sleep(1)
+                cooldown_attempts += 1
+                continue  # Retry scraping the same page after cooldown
+            else:
+                print(f"{Fore.RED}No more hotels found after cooldown, stopping scrape.{Style.RESET_ALL}")
+                break
+        
         all_hotels.extend(hotels)
         total_hotels = len(all_hotels)
         
         print(f"{Fore.YELLOW}{'-'*80}\nTotal hotels collected so far: {total_hotels}\n{'-'*80}{Style.RESET_ALL}")
         
         page_number += 1
+        cooldown_attempts = 0  # Reset cooldown attempts after successful scrape
         time.sleep(1)  # A bit of delay to avoid overloading the server
 
     return all_hotels
