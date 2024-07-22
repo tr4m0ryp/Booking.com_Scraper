@@ -9,7 +9,7 @@ from colorama import init, Fore, Style
 init()
 
 # Base URL for Booking.com search results (you need to adjust the location and other search parameters)
-base_url = "https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1BCAEoggI46AdIM1gEaCCIAQGYARyIAQzYAQPoAQGIAgGoAgO4Av-mtJIGwAIB0gIkZDY5YmU5NDYtNmRkMi00M2M3LWIwZDctZmJlZWI5MmFhYzMx2AIE4AIB&sid=34e1dd939a0c9ae00f135e59eb13be0f&aid=304142&dest_id=20088325&dest_type=city&group_adults=2&group_children=0&no_rooms=1&from_sf=1"
+base_url = "https://www.booking.com/searchresults.nl.html?label=01HP5400BCFTC1PQJ217EC9D3F_01J3BYHS22M3G6JQZK4DEHX580&sid=17ef3398ed3d81b34883dea49421a24a&aid=2375516&sb_lp=1&src=index&error_url=https%3A%2F%2Fwww.booking.com%2Findex.nl.html%3Faid%3D2375516%26label%3D01HP5400BCFTC1PQJ217EC9D3F_01J3BYHS22M3G6JQZK4DEHX580%26sid%3D17ef3398ed3d81b34883dea49421a24a%26sb_price_type%3Dtotal%26%26&ss=Nederland&is_ski_area=0&checkin_year=&checkin_month=&checkout_year=&checkout_month=&flex_window=0&group_adults=1&group_children=0&no_rooms=1&b_h4u_keep_filters=&from_sf=1&ss_raw=Nederlad&dest_id=&dest_type=&search_pageview_id=b8ac05a176450049&search_selected=false&nflt=ht_id%3D204%3Bht_id%3D226%3Bht_id%3D201%3Bht_id%3D228%3Bht_id%3D206%3Bht_id%3D216%3Bht_id%3D214%3Bht_id%3D212%3Bht_id%3D224%3Bht_id%3D215%3Bht_id%3D203%3Bht_id%3D205%3Bht_id%3D234%3Bht_id%3D225%3Bht_id%3D221"
 
 # Headers to make the scraping less suspicious
 headers = {
