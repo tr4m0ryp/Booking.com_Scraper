@@ -1,6 +1,6 @@
 # Booking.com Hotel Scraper
 
-This Python script scrapes hotel data from Booking.com and saves it into an Excel file. It uses BeautifulSoup for parsing HTML and colorama for colored terminal output.
+Python based script scrapes hotel data from Booking.com and saves it into an Excel file. It uses BeautifulSoup for parsing HTML and colorama for colored terminal output.
 
 ## Features
 
